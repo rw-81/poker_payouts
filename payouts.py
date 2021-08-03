@@ -1,35 +1,69 @@
 import math
 
-print("Poker payouts made simple.")
+print("\n\nPoker payout calculator.\n")
 
-players = int(input("How many players? "))
+while True:
+	try:
+		players = input("How many players? ")
+		players = int(players)
+		break
+	except ValueError:
+		continue
 
-buyin = int(input("What was buy in ?: $"))
-num_rebuys = int(input("How many rebuys? "))
-num_addons = int(input("How many players added on? "))
+while True:
+	try:
+		buyin = input("What is the buyin ? $")
+		buyin = int(buyin)
+		break
+	except ValueError:
+		continue
+while True:
+    try:
+        add_on = input("How much to add on? $")
+        add_on = int(add_on)
+        break
+    except ValueError:
+        continue
 
-add_on = 10
+while True:
+	try:
+		rebuys = input("How many rebuys? ")
+		rebuys = int(rebuys)
+		break
+	except ValueError:
+		continue
+while True:
+	try:
+		addons = input("How many players added on? ")
+		addons = int(addons)
+		break
+	except ValueError:
+		continue
 
-pot = buyin * (players + num_rebuys)
 
-print('Total pot: $' + str(pot) + ".00")
 
-#if players <= 4:
-	#print('There are ' + str(players) + ' players.')
+pot = buyin * (players + rebuys)
+
+print('\n\nTotal pot: $' + str(pot) + ".00")
+
 
 def calculate_payouts():
 	if players <= 4:
-		first = ${:,.2f}'.format(pot)
-		return "First place pays: " + str(first)
+		first = '${:,.2f}'.format(pot)
+		return "\n\nFirst place pays: " + str(first)
 	elif players <= 8:
 		first = '${:,.2f}'.format(pot * .70)
 		second = '${:,.2f}'.format(pot * .30)
-		return "First place pays: " + str(first) + "\nSecond place pays: " + str(second)
+		return "\nFirst place pays: " + str(first) + "\nSecond place pays: " + str(second)
 	else:
 		first = '${:,.2f}'.format(pot * .50)
 		second = '${:,.2f}'.format(pot * .30)
 		third = '${:,.2f}'.format(pot * .20)
-		return "First place pays: $" + str(first) + "\nSecond place pays: " + str(second) + "\nThird place pays: " + str(third)
+		return "\nFirst place pays: " + str(first) + "\nSecond place pays: " + str(second) + "\nThird place pays: " + str(third)
 
-		
+def bounty_reward():
+    bounty = '${:,.2f}'.format(rebuys * add_on)
+    return "The bounty reward is: " + bounty
+
 print(calculate_payouts())
+print(bounty_reward())
