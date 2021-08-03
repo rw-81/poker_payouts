@@ -44,7 +44,7 @@ while True:
 
 pot = buyin * (players + rebuys)
 
-print('\n\nTotal pot: $' + str(pot) + ".00")
+print('\n\nTotal pot: ' + '${:,.2f}'.format(pot))
 
 
 def calculate_payouts():
@@ -62,7 +62,7 @@ def calculate_payouts():
 		return "\nFirst place pays: " + str(first) + "\nSecond place pays: " + str(second) + "\nThird place pays: " + str(third)
 
 def bounty_reward():
-    bounty = '${:,.2f}'.format(rebuys * add_on)
+    bounty = '${:,.2f}'.format(addons * add_on)
     return "The bounty reward is: " + bounty
 
 print(calculate_payouts())
